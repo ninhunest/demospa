@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+
+	<title>Single Page Application</title>
+
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+	<link href="assets/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+	<header class="compact">
+		<h1><a href="#">HDmovies</a></h1>
+	</header>
+	<div class="main-content">
+		<div class="all-products page">
+			<div class="filters">
+				<form>
+
+					<div class="filter-criteria">
+						<span>nhà xuất bản</span>
+						<label><input type="checkbox" name="publisher" value="marvel">Marvel</label>
+						<label><input type="checkbox" name="publisher" value="fox">Fox</label>
+					</div>
+
+					<div class="filter-criteria">
+						<span>Tác giả</span>
+						<label><input type="checkbox" value="joss" name="author">Joss</label>
+						<label><input type="checkbox" value="stephan" name="author">Stephan</label>
+						<label><input type="checkbox" value="evans" name="author">Evans</label>
+					</div>
+					<button>Clear filters</button>
+
+				</form>
+
+			</div>
+			<ul class="products-list">
+				<script id="products-template" type="x-handlebars-template">​
+					{{#each this}}
+						<li data-index="{{id}}">
+							<a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
+							<h2> {{name}} </h2>
+							<ul class="product-description">
+								<li><span>Nhà sản sxuất: </span>{{details.publisher}}</li>
+								<li><span>Đạo diễn: </span>{{details.author}}</li></br>
+								<li><span>Năm xuất bản: </span>{{details.date}}</li>
+							</ul>
+							<div class="highlight"></div>
+						</li>
+					{{/each}}
+				</script> 
+			</ul>
+		</div>
+
+		<div class="single-product page">
+			<div class="overlay"></div>
+			<div class="preview-large">
+				<h3>Single product view</h3>
+				<img src=""/>
+				<p></p>
+				<span class="close">×</span>
+			</div>
+		</div>
+		<div class="error page">
+			<h3>Sorry, something went wrong :(</h3>
+		</div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+	<script src="assets/js/script.js"></script>
+</body>
+
+</html>
